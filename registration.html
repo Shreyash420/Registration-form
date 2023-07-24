@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Enrollment Registration Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00b8fe, #41dcf4, #d3d3d3);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%; /* Adjusted width to 90% of the webpage */
+      width: 800px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 30px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #007bff;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group select {
+      width: 90%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group input[type="date"] {
+      width: 90%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .form-group select {
+      appearance: none;
+      padding: 15px;
+      background: #f2f2f2;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .form-group button {
+      padding: 15px 25px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-group button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      margin-top: 20px;
+    }
+
+    .output p {
+      margin: 0;
+      color: #555;
+    }
+
+    .output label {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    /* Additional styles for photo section and skills section */
+    .form-group .photo-input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-group .skills-input {
+      width: 90%;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      transition: background-color 0.3s ease;
+      resize: vertical;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 style="color: #007bff; text-align: center;">Student Enrollment Registration Form</h2>
+    <div class="form-group">
+      <label for="photo">Student Photo:</label>
+      <input type="file" id="photo" class="photo-input" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" required>
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <input type="text" id="country" required>
+    </div>
+    <div class="form-group">
+      <label for="skills">Skills:</label>
+      <textarea id="skills" class="skills-input" required></textarea>
+    </div>
+    <div class="form-group" style="text-align: center;">
+      <button onclick="register()">Register</button>
+    </div>
+    <div class="output" id="output"></div>
+  </div>
+
+  <script>
+    function register() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const dob = document.getElementById('dob').value;
+      const gender = document.getElementById('gender').value;
+      const country = document.getElementById('country').value;
+      const photo = document.getElementById('photo').value;
+      const skills = document.getElementById('skills').value;
+
+      // Display data on the same page
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = `
+        <p><label>Name:</label> ${name}</p>
+        <p><label>Email:</label> ${email}</p>
+        <p><label>Date of Birth:</label> ${dob}</p>
+        <p><label>Gender:</label> ${gender}</p>
+        <p><label>Country:</label> ${country}</p>
+        <p><label>Skills:</label> ${skills}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
